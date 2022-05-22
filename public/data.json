@@ -11,6 +11,7 @@
         "name": "Spirit Level",
         "image": "https://i.ibb.co/HPBwVTP/Professional-Measuring-Tools-24-Aluminum-Box-Level-Spirit-Level.jpg",
         "description": "It is used to check the horizontality and verticality of the surfaces. Spirit level is made of hard plastic or wood with bubble tube in the middle. The bubble tube is partially filled with alcohol in such a way that, an air bubble is formed in it. The spirit level is placed on surface of masonry wall and bubble is checked. The surface is called leveled when the bubble in the tube settles at middle of tube.",
+        "min_order_quantity": 50,
         "available_quanity": 2300,
         "price": 20
     },
@@ -18,6 +19,7 @@
         "name": "Spades",
         "image": "https://i.ibb.co/9VHbhN7/garden-spade-500x500.jpg",
         "description": "They are used to mix mortar and also used to place cement, mortar, concrete in head pan. Spade is also used to dig the soil for foundation trenches etc. It consists of metal plate at the end of long wooden handle.",
+        "min_order_quantity": 50,
         "available_quanity": 1200,
         "price": 40
     },
@@ -25,6 +27,7 @@
         "name": "Pick Axe",
         "image": "https://i.ibb.co/8xRWJLV/istockphoto-967674060-170667a.jpg",
         "description": "It is employed for rough dressing of stones and to split the stones in the quarry. It has a long head pointed at both ends.",
+        "min_order_quantity": 50,
         "available_quanity": 1178,
         "price": 120
     },
@@ -32,6 +35,7 @@
         "name": "Chisel",
         "image": "https://i.ibb.co/9b3J9sP/Chisel-wood-24mm.jpg",
         "description": "They are used with mallets and with hammers. A chisel is used for normal splitting, roughing out and shaping the stone. Chisels are available in different sizes with bladed, flat, tapered and other shaped chipping points. Blade of chisel is made from iron or metal and the handle is made from wood.",
+        "min_order_quantity": 50,
         "available_quanity": 1234,
         "price": 24
     },
@@ -40,6 +44,7 @@
         "name": "Mash Hammer",
         "image": "https://i.ibb.co/yyJpbFh/4-YR67-AS01.jpg",
         "description": "A mash hammer is also known as a stone mason’s hammer. It is used to hit and drive chisel for rough dressing of stone. It is double-sided with two striking faces, most often used in stone masonry work. It should only be used to strike stones, but can also be used for such tasks as chipping away mortar in stone masonry. This hammer consists of a wooden handle to which is attached a heavy head, usually made of metal.",
+        "min_order_quantity": 50,
         "available_quanity": 3454,
         "price": 56
     }
