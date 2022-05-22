@@ -9,9 +9,9 @@ const Tools = () => {
         .then(data => setTools(data))
     } ,[])
     return (
-        <div className='my-24'>
+        <div className='my-24 mx-16'>
             <h2 className='text-5xl text-center'>Tools</h2>
-            <div className='grid lg:grid-cols-3 gap-6 md:grid-cols-2 gap-10 sm:grid-cols-1'>
+            <div className='grid lg:grid-cols-3 gap-5 md:grid-cols-2 gap-8 sm:grid-cols-1'>
                 {
                     tools.map(tool => <Tool
                     key={tool.id}
