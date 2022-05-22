@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 
@@ -12,6 +12,8 @@ const SignIn = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+      const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
@@ -85,7 +87,7 @@ const SignIn = () => {
 
                     <div className="divider">OR</div>
                     <div className=" rounded-box place-items-center ">
-                        <button  className="btn text-black bg-transparent w-full  hover:text-white">SignUp with Google</button>
+                        <button onClick={() => signInWithGoogle()} className="btn text-black bg-transparent w-full  hover:text-white">SignUp with Google</button>
 
                     </div>
                 </div>
