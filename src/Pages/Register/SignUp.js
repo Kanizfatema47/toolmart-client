@@ -1,10 +1,23 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 
 const SignUp = () => {
+    
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        createUserWithEmailAndPassword(data.email, data.password)
+    };
     return (
         <div>
             <div className="card  mx-auto text-center bg-base-100 shadow-xl lg:w-4/12 sm:w-96">
