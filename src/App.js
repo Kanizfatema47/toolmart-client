@@ -7,6 +7,7 @@ import SignIn from './Pages/Register/SignIn';
 import SignUp from './Pages/Register/SignUp';
 import RequireAuth from './Pages/Register/RequireAuth';
 import Purchase from './Pages/Purchase/Purchase';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>} />
+        <Route path='/blogs' element={<Blogs></Blogs>}/>
         <Route path='signin' element={<SignIn></SignIn>} />
         <Route path='signup' element={<SignUp></SignUp>} />
         <Route path='/manageitems/:id' element={
