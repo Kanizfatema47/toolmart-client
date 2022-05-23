@@ -1,12 +1,46 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import useToolsDetails from '../Shared/Hook/useToolsDetails';
 
 const Purchase = () => {
     const { id } = useParams()
+    const [tools] = useToolsDetails(id);
+
+    // Increase
+    const [minOrder, setMinOrder] = useState([])
+    const increaseRef = useRef();
+    useEffect(()=>{
+        setMinOrder(tools.min_order_quantity)
+    } , [tools])
+
+const handleIncrease= (e) =>{
+    e.preventDefault();
+    const inputNum =parseInt( increaseRef.current.value);
+    const updatedQuantity = minOrder + inputNum;
+    setMinOrder(updatedQuantity)
+    const increasedQuantity = {updatedQuantity}
+    const url = `http://localhost:5000/increase/${id}`;
+    fetch(url, {
+        method: 'PUT',
+        headers:{
+            'content-type': 'application/json'
+        },
+        body:JSON.stringify(increasedQuantity)
+
+
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log('success', data)
+        alert('Quantity updated')
+    })
+    
+
+}
 
     return (
         <div>
-            <div  className='flex  justify-evenly items-center'>
+            <div className='flex  justify-evenly items-center'>
                 <div class="leading-loose">
                     <form class="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
                         <p class="text-gray-800 font-medium">Customer information</p>
@@ -45,25 +79,30 @@ const Purchase = () => {
                     </form>
                 </div>
                 <div>
-                <div class="card w-96 bg-base-100 shadow-xl">
-                    <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">
-                            Shoes!
-                            <div class="badge badge-secondary">NEW</div>
-                        </h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-end">
-                            <div class="badge badge-outline">Fashion</div>
-                            <div class="badge badge-outline">Products</div>
+                    <div class="card w-96 bg-base-100 shadow-xl">
+                        <figure><img className='' src={tools.image} alt="" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">
+                                {tools.name}
+                            </h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <div>
+                                <p> Price:{tools.price}</p>
+                                <p>Min Order: {minOrder}</p>
+                            </div>
+                        </div>
+                        <div className='flex flex-col items-center mb-6'>
+                            <form>
+                                <input type="number" ref={increaseRef} placeholder='Increase Quantity' className='border-2 border-solid'/>
+                                <button onClick={(e)=> handleIncrease(e, id)} type="submit">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
 
             </div>
 
-            
+
         </div>
     );
 };
