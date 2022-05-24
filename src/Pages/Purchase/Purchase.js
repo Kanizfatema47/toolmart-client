@@ -5,38 +5,76 @@ import useToolsDetails from '../Shared/Hook/useToolsDetails';
 const Purchase = () => {
     const { id } = useParams()
     const [tools] = useToolsDetails(id);
+    const [price, setPrice] = useState('')
 
     // Increase
-    const [minOrder, setMinOrder] = useState([])
+    const [minOrder, setMinOrder] = useState()
     const increaseRef = useRef();
-    useEffect(()=>{
+
+    useEffect(() => {
         setMinOrder(tools.min_order_quantity)
-    } , [tools])
-
-const handleIncrease= (e) =>{
-    e.preventDefault();
-    const inputNum =parseInt( increaseRef.current.value);
-    const updatedQuantity = minOrder + inputNum;
-    setMinOrder(updatedQuantity)
-    const increasedQuantity = {updatedQuantity}
-    const url = `http://localhost:5000/increase/${id}`;
-    fetch(url, {
-        method: 'PUT',
-        headers:{
-            'content-type': 'application/json'
-        },
-        body:JSON.stringify(increasedQuantity)
+        setPrice(tools.price * tools.min_order_quantity)
+    }, [tools])
 
 
-    })
-    .then(res => res.json())
-    .then(data =>{
-        console.log('success', data)
-        alert('Quantity updated')
-    })
+
+    const handleIncrease = (e) => {
+        const inputNum = parseInt(increaseRef.current.value);
+
+        e.preventDefault();
+        const updatedQuantity = minOrder + inputNum ;
+        setMinOrder(updatedQuantity)
+
+        const updatedPrice = inputNum * tools.price;
+        const newPrice = price + updatedPrice;
+        setPrice(newPrice)
+        // const url = `http://localhost:5000/increase/${id}`;
+        // fetch(url, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(increasedQuantity)
+
+
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log('success', data)
+        //         alert('Quantity updated')
+        //     })
+
+
+
+
+
+    }
     
+    const handleDecrease = (e) => {
+        const inputNum = parseInt(increaseRef.current.value);
 
-}
+        e.preventDefault()
+        const updatedQuantity = minOrder - inputNum;
+        setMinOrder(updatedQuantity)
+        const updatedPrice = inputNum * tools.price;
+        const newPrice = price - updatedPrice;
+        setPrice(newPrice)
+        // const url = `http://localhost:5000/decrease/${id}`;
+        // fetch(url,{
+        //     method: 'PUT',
+        //     headers: {
+        //             'content-type': 'application/json',
+        //     },
+        //     body: JSON.stringify(decreasedQuanitty)
+
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log('sucess', data);
+        //     alert('Quantity Decreased')
+        // })
+
+    }
 
     return (
         <div>
@@ -87,14 +125,15 @@ const handleIncrease= (e) =>{
                             </h2>
                             <p>If a dog chews shoes whose shoes does he choose?</p>
                             <div>
-                                <p> Price:{tools.price}</p>
+                                <p> Price:{price}</p>
                                 <p>Min Order: {minOrder}</p>
                             </div>
                         </div>
                         <div className='flex flex-col items-center mb-6'>
                             <form>
-                                <input type="number" ref={increaseRef} placeholder='Increase Quantity' className='border-2 border-solid'/>
-                                <button onClick={(e)=> handleIncrease(e, id)} type="submit">Submit</button>
+                                <input type="number" ref={increaseRef} placeholder='Increase Quantity' className='border-2 border-solid' />
+                                <button onClick={(e) => handleIncrease(e, id)} type="submit">Increase</button>
+                                <button onClick={(e) => handleDecrease(e,id)} type="submit">Decrease</button>
                             </form>
                         </div>
                     </div>

@@ -12,6 +12,7 @@ import Reviews from './Pages/Dashboard/Reviews';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import Order from './Pages/Dashboard/Order';
 import ErrorPage from './Pages/Shared/ErrorPage';
+import Portfolio from './Pages/Porfolio/Portfolio';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
           
         </Route>
+        <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='*' element={<ErrorPage></ErrorPage>}/>
 
       </Routes>
