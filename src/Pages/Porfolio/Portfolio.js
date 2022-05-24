@@ -7,8 +7,8 @@ const Portfolio = () => {
                 <h1 className='text-4xl text-center font-bold my-16 '>Personal Information</h1>
                 <h1 className='text-2xl'><strong>Name :</strong> Kaniz Fatema</h1>
                 <p><strong>Email:</strong> kanizfatema0184@gmail.com</p>
-                <p><strong>Github:</strong></p>
-                <p><strong>LinkedIn:</strong></p>
+                <p><strong>Github:</strong> https://github.com/Kanizfatema47</p>
+                <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/kaniz-fatema-292927164/</p>
             </div>
             <h1 className='text-4xl text-center font-bold my-16 '>Educational Information</h1>
             <div className="education-info justify-center items-center  grid lg:grid-cols-2 mx-24 gap-20 sm:grid-cols-1">
