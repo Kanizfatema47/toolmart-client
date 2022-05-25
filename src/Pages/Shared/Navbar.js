@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Transition } from "@headlessui/react";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [user] = useAuthState(auth);
+    const navigate = useNavigate()
+
+    const signout=()=>{
+        signOut(auth);
+        localStorage.removeItem('accessToken')
+        navigate('/')
+    }
 
     return (
 
@@ -52,12 +63,14 @@ const Navbar = () => {
 
                                     </Link>
 
-                                    <Link
-                                        to="/signin"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                    >
-                                       Login
-                                    </Link>
+                                    {
+                                    !user ? <Link
+                                    to="/signin"
+                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                >
+                                   Login
+                                </Link> : <button onClick={signout} className='text-white' type="submit">SignOut</button>
+                                }
                                     <Link
                                         to="/portfolio"
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -155,13 +168,15 @@ const Navbar = () => {
                                    Dashboard
 
                                 </Link>
-
-                                <Link
+                                {
+                                    !user ? <Link
                                     to="/signin"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
                                    Login
-                                </Link>
+                                </Link> : <button onClick={signout} className='text-white' type="submit">SignOut</button>
+                                }
+                                
 
                                 <Link
                                     to="/portfolio"
