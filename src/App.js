@@ -13,6 +13,9 @@ import Order from './Pages/Dashboard/Order';
 import ErrorPage from './Pages/Shared/ErrorPage';
 import Portfolio from './Pages/Porfolio/Portfolio';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import MakeAdmin from './Pages/MakeAdmin/MakeAdmin';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
@@ -33,12 +36,15 @@ function App() {
           <Route index element={<Order></Order>}/>
           <Route path='review' element={<Reviews></Reviews>}></Route>
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='admin' element={<MakeAdmin></MakeAdmin>}></Route>
           
         </Route>
         <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
+        
         <Route path='*' element={<ErrorPage></ErrorPage>}/>
 
       </Routes>
+      <ToastContainer/>
       
       <Footer></Footer>
 

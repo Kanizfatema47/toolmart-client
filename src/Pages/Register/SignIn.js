@@ -18,7 +18,7 @@ const SignIn = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const [token] = useToken();
+    const [token] = useToken(user || gUser);
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {

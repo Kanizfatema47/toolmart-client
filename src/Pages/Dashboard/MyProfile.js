@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useRef, useState } from 'react';
@@ -22,22 +23,25 @@ const MyProfile = () => {
          if (user) {
            fetch(`http://localhost:5000/userInfo?email=${user.email}`, {
              method: "GET",
-             headers: {
-               authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-             },
+            //  headers: {
+            //    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            //  },
            })
-             .then((res) => {
-               if (res.status === 401 || res.status === 403) {
-                 navigate("/");
-                 signOut(auth);
-                 localStorage.removeItem("accessToken");
-               }
-               return res.json();
-             })
-             .then((data) => {
-               setUserinfo(data[0]);
-               console.log(data);
-             });
+
+           .then(res => res.json)
+           .then (data=> setUserinfo(data[0]))
+            //  .then((res) => {
+            //    if (res.status === 401 || res.status === 403) {
+            //      navigate("/");
+            //      signOut(auth);
+            //      localStorage.removeItem("accessToken");
+            //    }
+            //    return res.json();
+            //  })
+            //  .then((data) => {
+            //    setUserinfo(data[0]);
+            //    console.log(data);
+            //  });
          }
        }, [user]);
 
@@ -58,7 +62,7 @@ const MyProfile = () => {
 
  
 
-          fetch(`https://localhost:5000/users/${email}`, {
+          fetch(`http://localhost:5000/users/${email}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
@@ -90,7 +94,7 @@ const MyProfile = () => {
                       id="username"
                       class="border-1  rounded-r px-4 py-2 w-full"
                       type="text"
-                      value={user.displayName}
+                      value={user?.displayName}
                     />
                   </div>
                 </div>
@@ -105,7 +109,7 @@ const MyProfile = () => {
                     id="email"
                     class="border-1  rounded-r px-4 py-2 w-full"
                     type="email"
-                    value={user.email}
+                    value={user?.email}
                   />
                 </div>
                 <div class="pb-4">
