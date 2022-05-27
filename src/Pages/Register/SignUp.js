@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import useToken from '../Shared/Hook/useToken';
 
@@ -19,15 +19,19 @@ const SignUp = () => {
 
       const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
+      const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
+
+
 
       const [token] = useToken(user || gUser)
     const { register, formState: { errors }, handleSubmit } = useForm();
     if(token){
         navigate('/')
     }
-    const onSubmit = data => {
+    const onSubmit = async( data) => {
         console.log(data)
-        createUserWithEmailAndPassword(data.email, data.password)
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
       
     };
     return (
