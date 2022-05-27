@@ -11,7 +11,7 @@ const Navbar = () => {
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
-    const signout=()=>{
+    const signout = () => {
         signOut(auth);
         localStorage.removeItem('accessToken')
         navigate('/')
@@ -19,17 +19,17 @@ const Navbar = () => {
 
     return (
 
-        <div>
+        <div className='w-full'>
             <nav className="bg-gray-800">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-evenly h-16">
-                        <div className="flex items-center ">
-                            <div className="flex-shrink-0">
-                                <img style={{ width: 50, height: 50}}
-                                    className="h-8 w-8"
-                                    src='' 
-                                    alt=''
-                                />
+                        <div className="flex  justify-center items-center ">
+                            <div className="flex-shrink-0 flex flex-row">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" stroke="#ffffff" viewBox="0 0 24 24" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+                                </svg>
+                                <p className='text-white text-3xl uppercase'>ToolMart</p>
+
                             </div>
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
@@ -37,7 +37,7 @@ const Navbar = () => {
                                         to="/"
                                         className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >
-                                       Home
+                                        Home
                                     </Link>
 
                                     <Link
@@ -59,23 +59,23 @@ const Navbar = () => {
                                         to="/dashboard"
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >
-                                      Dashboard
+                                        Dashboard
 
                                     </Link>
 
                                     {
-                                    !user ? <Link
-                                    to="/signin"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                   Login
-                                </Link> : <button onClick={signout} className='text-white' type="submit">SignOut</button>
-                                }
+                                        !user ? <Link
+                                            to="/signin"
+                                            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                        >
+                                            Login
+                                        </Link> : <button onClick={signout} className='text-white' type="submit">SignOut</button>
+                                    }
                                     <Link
                                         to="/portfolio"
                                         className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                                     >
-                                       My Portfolio
+                                        My Portfolio
                                     </Link>
                                 </div>
                             </div>
@@ -165,24 +165,24 @@ const Navbar = () => {
                                     to="/dashboard"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                   Dashboard
+                                    Dashboard
 
                                 </Link>
                                 {
                                     !user ? <Link
-                                    to="/signin"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                   Login
-                                </Link> : <button onClick={signout} className='text-white' type="submit">SignOut</button>
+                                        to="/signin"
+                                        className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                                    >
+                                        Login
+                                    </Link> : <button onClick={signout} className='text-white' type="submit">SignOut</button>
                                 }
-                                
+
 
                                 <Link
                                     to="/portfolio"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                                 >
-                                   My Portfolio
+                                    My Portfolio
                                 </Link>
                             </div>
                         </div>

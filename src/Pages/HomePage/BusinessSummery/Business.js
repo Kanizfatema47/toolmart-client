@@ -6,10 +6,10 @@ import img4 from '../../../assets/images/work.png'
 import bg from '../../../assets/images/image2.jpg';
 const Business = () => {
     return (
-        <div className=" mx-auto text-center hero min-w-screen h-[400px]" style={{ backgroundImage: `url(${bg})` }}>
+        <div className=" mx-auto  text-center hero lg:min-w-screen h-[400px]  sm:w-full h-auto" style={{ backgroundImage: `url(${bg})` }}>
             <div className='hero-overlay bg-opacity-90'>
             <h1 className='text-5xl text-center mt-24 text-white pb-16'>Why Choose Us?</h1>
-            <div class="stats bg-transparent">
+            <div class=" bg-transparent mb-12 grid lg:grid-cols-4 sm:grid-cols-1 justify-center items-center">
 
                 <div class="stat text-white">
                     <div class="stat-figure text-white">

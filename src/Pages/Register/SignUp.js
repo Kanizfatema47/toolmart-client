@@ -18,14 +18,17 @@ const SignUp = () => {
       
 
       const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
+
       const [token] = useToken(user || gUser)
     const { register, formState: { errors }, handleSubmit } = useForm();
+    if(token){
+        navigate('/')
+    }
     const onSubmit = data => {
         console.log(data)
         createUserWithEmailAndPassword(data.email, data.password)
-        if(token){
-            navigate('/')
-        }
+      
     };
     return (
         <div>

@@ -51,9 +51,16 @@ const Portfolio = () => {
             </div>
             <div>
                 <h1 className='text-4xl text-center font-bold my-16 '>My Skills</h1>
-                <a href="http://"></a>
-                <a href="http://"></a>
-                <a href="http://"></a>
+                <ul>
+                    <li>React JS</li>
+                    <li>JavaScript</li>
+                    <li>C</li>
+                    <li>Bootstrap</li>
+                    <li>Tailwind </li>
+                    <li>Wordpress</li>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                </ul>
             </div>
         </div>
     );
