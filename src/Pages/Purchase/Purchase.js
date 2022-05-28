@@ -55,24 +55,22 @@ const Purchase = () => {
 
         e.preventDefault()
         const updatedQuantity = minOrder - inputNum;
-        setMinOrder(updatedQuantity)
+        // setMinOrder(updatedQuantity)
         const updatedPrice = inputNum * tools.price;
         const newPrice = price - updatedPrice;
         setPrice(newPrice);
-        // const url = `http://localhost:5000/decrease/${id}`;
-        // fetch(url,{
-        //     method: 'PUT',
-        //     headers: {
-        //             'content-type': 'application/json',
-        //     },
-        //     body: JSON.stringify(decreasedQuanitty)
+        if (updatedQuantity < tools.min_order_quantity){
+            alert(`Your need to buy ${tools.min_order_quantity} product not less` )
+            increaseRef.current.value = " ";
+              setPrice(tools.price * tools.min_order_quantity);
 
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log('sucess', data);
-        //     alert('Quantity Decreased')
-        // })
+          } 
+          else{
+            setMinOrder(updatedQuantity);
+               const updatedprice = tools.price * inputNum;
+                 setPrice(price - updatedprice);
+
+          }
 
     }
 
