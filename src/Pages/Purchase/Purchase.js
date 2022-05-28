@@ -33,27 +33,17 @@ const Purchase = () => {
 
         e.preventDefault();
         const updatedQuantity = minOrder + inputNum;
-        setMinOrder(updatedQuantity)
+        if (updatedQuantity > tools.available_quanity) {
 
-        const updatedPrice = inputNum * tools.price;
-        const newPrice = price + updatedPrice;
-        setPrice(newPrice)
-        // const url = `http://localhost:5000/increase/${id}`;
-        // fetch(url, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(increasedQuantity)
-
-
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log('success', data)
-        //         alert('Quantity updated')
-        //     })
-
+            alert("Your product amount is more than available quantity, please reduce your product amount")
+            increaseRef.current.value = " ";
+            setPrice(parseInt(tools.price * tools.min_order_quantity))
+          } else {
+          setMinOrder(updatedQuantity);
+          const updatedPrice = inputNum * tools.price;
+          setPrice(price + updatedPrice)
+       
+          }
 
 
 
