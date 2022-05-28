@@ -40,7 +40,7 @@ const MakeAdmin = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user,index) => (
+              {users?.map((user,index) => (
                 <UserRow key={user._id} index={index} users={user} />
               ))}
             </tbody>

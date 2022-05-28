@@ -8,7 +8,7 @@ const ManageOrders = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/order')
+        fetch('http://localhost:5000/neworder')
         .then(res => res.json())
         .then(data => setOrder(data))
 
@@ -62,9 +62,9 @@ const ManageOrders = () => {
                   <td>{order.name}</td>
                   <td>{order.email}</td>
                   <td>{order.city}</td>
-                  <td>{order.productname}</td>
-                  <td>{order.productquantity}</td>
-                  <td>{order.productprice}</td>
+                  <td>{order.toolsName}</td>
+                  <td>{order.minQuantity}</td>
+                  <td>{order.price}</td>
                   <td>
                     <button
                       className="btn btn-xs"
