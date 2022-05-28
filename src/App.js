@@ -15,6 +15,11 @@ import Portfolio from './Pages/Porfolio/Portfolio';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MakeAdmin from './Pages/MakeAdmin/MakeAdmin';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ManageOrders from './Pages/MakeAdmin/ManageOrders';
+import ManageProducts from './Pages/MakeAdmin/ManageProducts';
+import AddProducts from './Pages/MakeAdmin/AddProducts';
+
 
 
 function App() {
@@ -37,6 +42,9 @@ function App() {
           <Route path='review' element={<Reviews></Reviews>}></Route>
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
           <Route path='admin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
+          <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
+          <Route path='addproducts' element={<AddProducts></AddProducts>}></Route>
           
         </Route>
         <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>

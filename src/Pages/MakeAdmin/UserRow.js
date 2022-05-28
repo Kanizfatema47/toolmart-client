@@ -14,7 +14,7 @@ const UserRow = ({ users ,index}) => {
   const makeAdmin = () => {
 
 
-    fetch(`http://localhost:5000//users/admin/${email}`, {
+    fetch(`http://localhost:5000/adminusers/admin/${email}`, {
       method: "PUT",
       headers: {
         authorization:` Bearer ${localStorage.getItem("accessToken")}`,

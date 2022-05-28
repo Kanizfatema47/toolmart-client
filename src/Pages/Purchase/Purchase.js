@@ -22,8 +22,8 @@ const Purchase = () => {
 
 
     useEffect(() => {
-        setMinOrder(tools.min_order_quantity)
-        setPrice(tools.price * tools.min_order_quantity)
+        setMinOrder(parseInt( tools.min_order_quantity))
+        setPrice(parseInt(tools.price * tools.min_order_quantity))
     }, [tools])
 
 
