@@ -2,7 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 const Order = () => {
     const [user] = useAuthState(auth)
@@ -38,6 +38,8 @@ const Order = () => {
            });
        }
      };
+
+    
     return (
       <div className="px-5">
         <div class="overflow-x-auto">
@@ -53,6 +55,7 @@ const Order = () => {
                 <th>Order Amount</th>
                 <th>Total Price</th>
                 <th>Action</th>
+                <th>Payment</th>
               </tr>
             </thead>
             <tbody>
@@ -73,6 +76,13 @@ const Order = () => {
                     >
                       Delete
                     </button>
+
+                   
+                  </td>
+                  <td>
+                  <Link to={`/payment/${item._id}`}>
+                        <button className="btn btn-success">Payment</button>
+                      </Link>
                   </td>
                 </tr>
               ))}

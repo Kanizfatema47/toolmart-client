@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ManageOrders from './Pages/MakeAdmin/ManageOrders';
 import ManageProducts from './Pages/MakeAdmin/ManageProducts';
 import AddProducts from './Pages/MakeAdmin/AddProducts';
+import Payment from './Pages/Payment';
 
 
 
@@ -48,6 +49,7 @@ function App() {
           
         </Route>
         <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
+        <Route path='payment/:id' element={<Payment></Payment>}></Route>
         
         <Route path='*' element={<ErrorPage></ErrorPage>}/>
 
