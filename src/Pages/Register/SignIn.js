@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import useToken from '../Shared/Hook/useToken';
+import Loading from '../Shared/Loading';
 
 
 const SignIn = () => {
@@ -27,12 +28,18 @@ const SignIn = () => {
         }
     }, [token])
 
+    let errorMessage;
+
+   
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
     };
+    if (loading || gLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div className='my-16'>
             <div className="card  mx-auto text-center bg-base-100 shadow-xl lg:w-4/12 sm:w-96">
@@ -95,14 +102,16 @@ const SignIn = () => {
 
                             </label>
                         </div>
+                        {errorMessage}
                         <input className='btn w-full max-w-xs uppercase' type="submit" value="Login" />
                     </form>
-                    <p>Already have an account?<Link className='' to='/signUp'>Create New Account </Link> </p>
+                    <p>Already have an account?<Link className='' to='/signup'>Create New Account </Link> </p>
 
                     <div className="divider">OR</div>
                     <div className=" rounded-box place-items-center ">
-                        <button onClick={() => signInWithGoogle()} className="btn text-black bg-transparent w-full  hover:text-white">SignUp with Google</button>
-
+                    <button onClick={() => signInWithGoogle()} className="btn btn-accent">
+                    Login with Google
+                </button>
                     </div>
                 </div>
             </div>

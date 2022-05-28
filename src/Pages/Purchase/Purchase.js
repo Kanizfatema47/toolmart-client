@@ -149,7 +149,7 @@ const Purchase = () => {
                     </form>
                 </div>
                 <div>
-                    <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card my-16 bg-base-100 shadow-xl">
                         <figure><img className='' src={tools.image} alt="" /></figure>
                         <div class="card-body">
                             <h2 class="card-title">
@@ -164,8 +164,8 @@ const Purchase = () => {
                         <div className='flex flex-col items-center mb-6'>
                             <form>
                                 <input type="number" ref={increaseRef} placeholder='Increase Quantity' className='border-2 border-solid' />
-                                <button onClick={(e) => handleIncrease(e, id)} type="submit">Increase</button>
-                                <button onClick={(e) => handleDecrease(e, id)} type="submit">Decrease</button>
+                                <button className='btn  ml-2 mr-2' onClick={(e) => handleIncrease(e, id)} type="submit">Increase</button>
+                                <button className='btn ' onClick={(e) => handleDecrease(e, id)} type="submit">Decrease</button>
                             </form>
                         </div>
                     </div>

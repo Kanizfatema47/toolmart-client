@@ -76,9 +76,9 @@ const MyProfile = () => {
 
     }
     return (
-      <div className="h-screen px-5">
-        <div class="h-full flex justify-between">
-          <div class="border-b-2 w-2/4 md:flex">
+      <div className="h-screen px-5 mb-5 lg:py-12 ">
+        <div class="h-full w-full flex justify-between  items-center lg:flex-row sm:flex flex-col  ">
+          <div class="border-b-2 lg:w-2/4 md:flex sm:w-full mb-12">
             <div class="w-full bg-white lg:ml-4 shadow-md">
               <form class="rounded  shadow p-6" onSubmit={handleSubmit}>
                 <div class="pb-6">
@@ -166,7 +166,7 @@ const MyProfile = () => {
               </form>
             </div>
           </div>
-          <div className="w-2/4 px-10">
+          <div className="lg:w-2/4 px-10   sm:w-full shadow-lg">
             <h3>Your Updated Information</h3>
             <h4>
               <storng className="text-1xl">Name : </storng>

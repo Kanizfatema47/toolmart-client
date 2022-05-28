@@ -11,7 +11,7 @@ const Dashboard = () => {
         <div>
             <div class="drawer drawer-mobile">
                 <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col items-start ">
+                <div class="drawer-content">
                     <h2 className='text-4xl text-primary font-bold'>Dashboard</h2>
                     <Outlet></Outlet>
 
@@ -22,7 +22,7 @@ const Dashboard = () => {
                     <label for="my-drawer" class="drawer-overlay"></label>
                     <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content">
                     {
-                            !admin ?<li><Link to='/dashboard'>My Order</Link></li>
+                            !admin ?<li><Link to='/dashboard'>My Profile</Link></li>
                                 : <span></span>
                         }
                           {
@@ -32,7 +32,7 @@ const Dashboard = () => {
                           
                         
                         
-                        <li><Link to='/dashboard/profile'>My Profile</Link></li>
+                        <li><Link to='/dashboard/order'>My Order</Link></li>
                         {
                             admin ? <li><Link to='/dashboard/admin'>Admin</Link></li>
                                 : <span></span>

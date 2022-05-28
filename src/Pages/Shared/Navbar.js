@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Transition } from "@headlessui/react";
@@ -40,12 +42,7 @@ const Navbar = () => {
                                         Home
                                     </Link>
 
-                                    <Link
-                                        to="/purchase"
-                                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                                    >
-                                        Purchase
-                                    </Link>
+
 
                                     <Link
                                         to="/blogs"
@@ -78,9 +75,34 @@ const Navbar = () => {
                                         My Portfolio
                                     </Link>
                                 </div>
+
+
                             </div>
                         </div>
                         <div className="-mr-2 flex md:hidden">
+                            
+                        <div className="navbar-start">
+                                <label
+                                    tabIndex="1"
+                                    for="my-drawer"
+                                    className="btn btn-ghost lg:hidden"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        stroke="#ffffff"
+                                        className="h-5 w-5"
+                                        fillRule="none"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
+                                            d="M4 6h16M4 12h8m-8 6h16"
+                                        />
+                                    </svg>
+                                </label>
+                            </div>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 type="button"
@@ -137,7 +159,9 @@ const Navbar = () => {
                     leaveTo="opacity-0 scale-95"
                 >
                     {(ref) => (
+
                         <div className="md:hidden" id="mobile-menu">
+
                             <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                                 <Link
                                     to="/"
@@ -146,12 +170,7 @@ const Navbar = () => {
                                     Home
                                 </Link>
 
-                                <Link
-                                    to="/purchase"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                                >
-                                    Purchase
-                                </Link>
+
 
                                 <Link
                                     to="/blogs"
@@ -185,6 +204,8 @@ const Navbar = () => {
                                     My Portfolio
                                 </Link>
                             </div>
+
+
                         </div>
                     )}
                 </Transition>

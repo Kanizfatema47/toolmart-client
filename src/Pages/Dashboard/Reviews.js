@@ -33,7 +33,7 @@ const Reviews = () => {
     }
 
     return (
-        <div className="mt-20 w-1/2">
+        <div className="mt-20 lg:w-1/2 sm:w-full">
             <h3 className="px-5 font-semibold text-center">
                 Give a feedback to Us
             </h3>
@@ -48,7 +48,7 @@ const Reviews = () => {
                         className="w-full border-solid border-2 py-1 rounded mb-5"
                         placeholder="Ratings between 1 to 5" required />
                     <textarea
-                        class="textarea textarea-info w-2/4"
+                        class="textarea textarea-info w-2/4 sm:w-full"
                         ref={review}
                         placeholder="Bio"
                         required

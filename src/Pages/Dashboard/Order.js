@@ -80,10 +80,19 @@ const Order = () => {
                    
                   </td>
                   <td>
-                  <Link to={`/payment/${item._id}`}>
+                  
+                      {
+                        item.price && !item.paid && <Link to={`/payment/${item._id}`}>
                         <button className="btn btn-success">Payment</button>
                       </Link>
+                      }
                   </td>
+                  <td>
+                    {item.price && item.paid && (
+                      <span className="text-success">Paid</span>
+                    )}
+                  </td>
+                  
                 </tr>
               ))}
             </tbody>

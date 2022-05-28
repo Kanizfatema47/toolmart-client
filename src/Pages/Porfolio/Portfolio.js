@@ -11,8 +11,8 @@ const Portfolio = () => {
                 <p><strong>LinkedIn:</strong> https://www.linkedin.com/in/kaniz-fatema-292927164/</p>
             </div>
             <h1 className='text-4xl text-center font-bold my-16 '>Educational Information</h1>
-            <div className="education-info justify-center items-center  grid lg:grid-cols-2 mx-24 gap-20 sm:grid-cols-1">
-                <div className='card mr-5 w-full h-1/2   p-10 bg-base-100 shadow-xl'>
+            <div className="education-info justify-center items-center  grid lg:grid-cols-2 mx-24 gap-20 sm:grid-cols-1 gap-10 mx-0 h-full">
+                <div className='card w-full  mr-5 p-10 bg-base-100 shadow-xl lg:mx-5'>
                     <h1 className='text-xl font-bold mb-3'>BSc in Computer Science and Engineering:</h1>
                     <p><strong>Institution :</strong> International Islamic University Chittagong</p>
                     <p><strong>Department :</strong> Computer Science and Engineering (CSE)</p>
@@ -22,36 +22,39 @@ const Portfolio = () => {
 
                 </div>
 
-               <div className='flex flex-col gap-y-10 justify-center items-center'>
-               <div className='card w-full  mr-5 p-10 bg-base-100 shadow-xl'>
-                    <h1 className='text-xl font-bold mb-3'>Secondary School Certificate:</h1>
-                    <p><strong>Institution :</strong> Teriail High School, Chittagong</p>
-                    <p><strong> Group :</strong> Science</p>
-                    <p> <strong>Year of Passing :</strong> 2013</p>
-                    <p><strong>GPA :</strong> 4.88</p>
+                <div className='flex flex-col gap-y-10 justify-center items-center'>
+                    <div className='card w-full  mr-5 p-10 bg-base-100 shadow-xl'>
+                        <h1 className='text-xl font-bold mb-3'>Secondary School Certificate:</h1>
+                        <p><strong>Institution :</strong> Teriail High School, Chittagong</p>
+                        <p><strong> Group :</strong> Science</p>
+                        <p> <strong>Year of Passing :</strong> 2013</p>
+                        <p><strong>GPA :</strong> 4.88</p>
 
 
+                    </div>
+
+                    <div className='card w-full mr-5 p-10 bg-base-100 shadow-xl'>
+                        <p className='text-xl font-bold mb-3'>Higher Secondary Certificate:</p>
+                        <p> <strong>Institution :</strong> Sitakund University College, Chittagong</p>
+                        <p> <strong> Group :</strong> Science</p>
+                        <p><strong>Year of Passing :</strong> 2015</p>
+                        <p><strong>GPA :</strong> 3.92</p>
+                    </div>
                 </div>
-
-                <div className='card w-full mr-5 p-10 bg-base-100 shadow-xl'>
-                    <p className='text-xl font-bold mb-3'>Higher Secondary Certificate:</p>
-                    <p> <strong>Institution :</strong> Sitakund University College, Chittagong</p>
-                    <p> <strong> Group :</strong> Science</p>
-                    <p><strong>Year of Passing :</strong> 2015</p>
-                    <p><strong>GPA :</strong> 3.92</p>
-                </div>
-               </div>
 
             </div>
             <div>
                 <h1 className='text-4xl text-center font-bold my-16 '>My Projects</h1>
-                <a href="http://"></a>
-                <a href="http://"></a>
-                <a href="http://"></a>
+                <div className='flex flex-col justify-center items-center'>
+                    <a href="https://warehouse-e166b.web.app/">Project 1</a>
+                    <a href="https://photography-8cd93.web.app/">Project 2</a>
+                    <a href="https://buy-now-47.netlify.app/">Project 3</a>
+
+                </div>
             </div>
             <div>
                 <h1 className='text-4xl text-center font-bold my-16 '>My Skills</h1>
-                <ul>
+                <ul className='flex flex-col justify-center items-center'>
                     <li>React JS</li>
                     <li>JavaScript</li>
                     <li>C</li>

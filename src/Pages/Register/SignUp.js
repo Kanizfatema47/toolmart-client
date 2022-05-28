@@ -12,6 +12,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import auth from "../../firebase.init";
 import useToken from "../Shared/Hook/useToken";
+import Loading from "../Shared/Loading";
 
 
 
@@ -20,7 +21,7 @@ import useToken from "../Shared/Hook/useToken";
 const SignUp = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, guser, gLoading, gerror] = useSignInWithGoogle(auth);
     const [createUserWithEmailAndPassword, user, loading, error] =
         useCreateUserWithEmailAndPassword(auth);
 
@@ -36,8 +37,8 @@ const SignUp = () => {
 
     let errorMessage;
 
-    if (loading || updating || gloading) {
-        return <p>Loading</p>
+    if (loading || gLoading || updating) {
+        return <Loading></Loading>
     }
     if (token) {
         navigate("/");
@@ -156,19 +157,21 @@ const SignUp = () => {
                     Register
                 </button>
                 {errorMessage}
+                <p className="text-center">
+                Already have an account?{" "}
+                <Link to="/signin" className="text-blue-600">
+                    Please Login
+                </Link>
+            </p>
                 <div class="flex flex-col w-full border-opacity-50">
                     <div class="divider">OR</div>
                 </div>
                 <button onClick={() => signInWithGoogle()} className="btn btn-accent">
                     Register with Google
                 </button>
+
             </form>
-            <p className="text-center">
-                Already have an account?{" "}
-                <Link to="/login" className="text-blue-600">
-                    Please Login
-                </Link>
-            </p>
+           
         </div>
     );
 };

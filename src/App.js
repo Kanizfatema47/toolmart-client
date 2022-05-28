@@ -38,24 +38,57 @@ function App() {
           </RequireAuth>
         } />
         <Route
-        path='dashboard' element={<Dashboard></Dashboard>}>
-          <Route index element={<Order></Order>}/>
-          <Route path='review' element={<Reviews></Reviews>}></Route>
-          <Route path='profile' element={<MyProfile></MyProfile>}></Route>
-          <Route path='admin' element={<MakeAdmin></MakeAdmin>}></Route>
-          <Route path='manageorders' element={<ManageOrders></ManageOrders>}></Route>
-          <Route path='manageproducts' element={<ManageProducts></ManageProducts>}></Route>
-          <Route path='addproducts' element={<AddProducts></AddProducts>}></Route>
-          
+          path='dashboard' element={<Dashboard></Dashboard>}>
+          <Route index element={<MyProfile></MyProfile>}/>
+
+          <Route path='order' element={
+            <RequireAuth>
+              <Order></Order>
+            </RequireAuth>
+          } />
+          <Route path='review' element={
+            <RequireAuth>
+              <Reviews></Reviews>
+            </RequireAuth>
+          }></Route>
+          <Route path='admin' element={
+            <RequireAuth>
+              <MakeAdmin></MakeAdmin>
+            </RequireAuth>
+          }></Route>
+          <Route path='manageorders' element={
+            <RequireAuth>
+              <ManageOrders></ManageOrders>
+            </RequireAuth>
+          }></Route>
+          <Route path='manageproducts' element={
+            <RequireAuth>
+              <ManageProducts></ManageProducts>
+            </RequireAuth>
+          }></Route>
+          <Route path='addproducts' element={
+            <RequireAuth>
+              <AddProducts></AddProducts>
+            </RequireAuth>
+          }></Route>
+
         </Route>
-        <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
-        <Route path='payment/:id' element={<Payment></Payment>}></Route>
-        
-        <Route path='*' element={<ErrorPage></ErrorPage>}/>
+        <Route path='portfolio' element={
+          <RequireAuth>
+            <Portfolio></Portfolio>
+          </RequireAuth>
+        }></Route>
+        <Route path='payment/:id' element={
+          <RequireAuth>
+            <Payment></Payment>
+          </RequireAuth>
+        }></Route>
+
+        <Route path='*' element={<ErrorPage></ErrorPage>} />
 
       </Routes>
-      <ToastContainer/>
-      
+      <ToastContainer />
+
       <Footer></Footer>
 
     </div>
