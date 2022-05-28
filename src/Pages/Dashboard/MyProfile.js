@@ -21,7 +21,7 @@ const MyProfile = () => {
 
        useEffect(() => {
          if (user) {
-           fetch(`http://localhost:5000/userInfo?email=${user.email}`, {
+           fetch(`https://frozen-peak-31960.herokuapp.com/userInfo?email=${user.email}`, {
              method: "GET",
             //  headers: {
             //    authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -62,7 +62,7 @@ const MyProfile = () => {
 
  
 
-          fetch(`http://localhost:5000/users/${email}`, {
+          fetch(`https://frozen-peak-31960.herokuapp.com/users/${email}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

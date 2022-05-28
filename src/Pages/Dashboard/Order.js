@@ -14,7 +14,7 @@ const Order = () => {
       const getItem = async () => {
         const email = user.email;
         console.log(email);
-        const url = `http://localhost:5000/order?email=${email}`;
+        const url = `https://frozen-peak-31960.herokuapp.com/order?email=${email}`;
 
         const { data } = await axios.get(url);
         setItems(data);
@@ -27,7 +27,7 @@ const Order = () => {
      const handleDelete = (id) => {
        const proceed = window.confirm("Are you sure you want to delete?");
        if (proceed) {
-         const url = `http://localhost:5000/order/${id}`;
+         const url = `https://frozen-peak-31960.herokuapp.com/order/${id}`;
          fetch(url, {
            method: "DELETE",
          })

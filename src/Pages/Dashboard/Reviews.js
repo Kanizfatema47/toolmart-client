@@ -14,7 +14,7 @@ const Reviews = () => {
 
         const Finalreview = { ratings, message };
 
-        const url = "http://localhost:5000/review";
+        const url = "https://frozen-peak-31960.herokuapp.com/review";
         fetch(url, {
             method: "POST",
             headers: {

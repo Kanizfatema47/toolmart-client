@@ -8,7 +8,7 @@ const ManageOrders = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/neworder')
+        fetch('https://frozen-peak-31960.herokuapp.com/neworder')
         .then(res => res.json())
         .then(data => setOrder(data))
 
@@ -23,7 +23,7 @@ const ManageOrders = () => {
       const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
-          const url = `http://localhost:5000/order/${id}`;
+          const url = `https://frozen-peak-31960.herokuapp.com/order/${id}`;
           fetch(url, {
             method: "DELETE",
           })

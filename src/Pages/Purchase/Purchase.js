@@ -93,7 +93,7 @@ const Purchase = () => {
         const userInfo = {
             toolsName, minQuantity, price, name, email, city, address, payment, country, zip
         }
-        const url = `http://localhost:5000/order`;
+        const url = `https://frozen-peak-31960.herokuapp.com/order`;
         fetch(url, {
             method: "POST",
             headers: {

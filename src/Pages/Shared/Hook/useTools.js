@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const useTools = () => {
     const [tools , setTools] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/tools')
+        fetch('https://frozen-peak-31960.herokuapp.com/tools')
         .then(res=> res.json())
         .then(data => setTools(data))
     } ,[])

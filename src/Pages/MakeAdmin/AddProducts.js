@@ -9,7 +9,7 @@ const AddaProducts = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const url = "http://localhost:5000/newproduct";
+    const url = "https://frozen-peak-31960.herokuapp.com/newproduct";
     fetch(url, {
       method: "POST",
       headers: {
